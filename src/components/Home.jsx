@@ -26,8 +26,8 @@ const Home = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/images/Resume.pdf'; 
-    link.download = 'Esha_Das_CV.docx';
+    link.href = '/images/Resume.docx'; 
+    link.download = 'Resume.docx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
