@@ -1,0 +1,87 @@
+.about-me {
+    padding: 50px 20px;
+    background-color: var(--background-color); /* Light Neutral White */
+    color: var(--text-color); /* Dark Slate Gray */
+    opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly move down */
+  transition: opacity 3s ease, transform 3s ease; 
+  }
+  
+  .about-me .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .about-me-content {
+    display: flex;
+    gap: 3rem;
+  }
+  .about-me.is-visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset the position */
+  }
+  .about-image img {
+    width: 280px;
+    border-radius: 8px;
+    border: 5px solid var(--secondary-color); /* Vibrant Orange for the border */
+  }
+  
+  .about-details {
+    flex-grow: 1;
+  }
+  
+  .about-details h2 {
+    font-size: 2.2rem;
+    color: var(--text-color); /* Dark Slate Gray */
+  }
+  
+  .about-details h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color); /* Vibrant Orange for the job title */
+    margin-bottom: 1rem;
+  }
+  
+  .about-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #666; /* Soft gray for text */
+  }
+  
+  .about-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about-info li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-color); /* Dark Slate Gray */
+  }
+  
+  .about-info li span {
+    font-weight: bold;
+    color: var(--secondary-color); /* Vibrant Orange for labels */
+  }
+  
+  .download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary-color); /* Vibrant Orange */
+    color: var(--background-color); /* Light Neutral White for the text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-btn:hover {
+    background-color: var(--highlight-color); /* Soft Yellow on hover */
+  }
+  @media (max-width: 768px) {
+    .about-me-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+  }

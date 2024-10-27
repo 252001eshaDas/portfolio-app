@@ -1,0 +1,81 @@
+.services {
+  padding: 2rem 0;
+  background-color: var(--background-color); /* Light Neutral White */
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.service-card {
+  background:#cce2ff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: space-between; /* Space the content within the card */
+  height: 100%; /* Ensure the card takes full height */
+  box-sizing: border-box;
+}
+
+.service-image {
+  width: 50%; /* Adjust as needed for responsiveness */
+  max-width: 200px; /* Set a max-width to control image size */
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  display: block; /* Ensure it's treated as a block element */
+  margin-left: auto; /* Center the image */
+  margin-right: auto; /* Center the image */
+}
+
+.service-card h3 {
+  margin: 0.5rem 0;
+  color: var(--color); /* Dark Slate Gray */
+}
+.service-icon {
+  font-size: 2rem;
+  color: var(--primary-color); /* Adjust color as needed */
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  color: #777;
+  text-align: center;
+  margin: 0;
+  padding: 0 1rem;
+  flex-grow: 1; /* Allow the description to grow and take available space */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+  overflow: hidden; /* Hide any overflow text */
+  text-overflow: ellipsis; /* Add ellipsis to indicate text overflow */
+  word-wrap: break-word;
+}
+
+/* Override slick-carousel default styles */
+.slick-list {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-track {
+  display: flex !important;
+  gap: 1rem; /* Adjust gap between slides if needed */
+  margin-left: 0 !important;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-arrow {
+  display: none !important;
+}

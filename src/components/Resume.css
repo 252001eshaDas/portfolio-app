@@ -1,0 +1,127 @@
+.resume {
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh; /* Changed from height to min-height */
+  overflow: hidden;
+  background-color: var(--color);/* Ensure the layout stays within the viewport */
+}
+.text h2 {
+  font-size: 2em;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.resume h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+.resume p {
+  text-align:left;
+    font-size: 1em;
+    color: #555;
+}
+.resume-sidebar {
+  background-color: white; 
+  color: var(--secondary-color);
+  padding: 20px;
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resume-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; 
+}
+
+.resume-sidebar nav ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: left;
+  background-color: white; 
+}
+
+/* .resume-sidebar nav ul li:hover, */
+.resume-sidebar nav ul li.active {
+  background-color: var(--secondary-color);
+  color: white;
+  border-left: 5px solid #f39c12;
+}
+
+.resume-sidebar nav ul li .icon {
+  margin-right: 10px;
+}
+
+.resume-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9; 
+  overflow-y: auto; /* Allow content to scroll vertically if it overflows */
+}
+
+.resume-section {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  flex-grow: 1; 
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.resume-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* For screens wider than 768px */
+@media (min-width: 768px) {
+  .resume {
+    flex-direction: row;
+    min-height: 100vh; /* Ensure it takes up full height */
+    overflow: hidden; /* Prevent overflowing */
+  }
+  .text h2 {
+    font-size: 1.5em;
+  }
+  .resume p {
+    font-size: 1em;
+}
+  .resume-sidebar {
+    width: 200px; 
+    height: 100vh; /* Make sidebar full height */
+    position: sticky;
+    top: 0; /* Stick to the top on scroll */
+  }
+
+  .resume-content {
+    flex: 1;
+    height: auto; /* Let the content height be based on its content */
+    overflow-y: auto; /* Allow content to scroll vertically */
+  }
+}
+
+
+
+/* Customize bullet points */
+.resume ul li,
+.resume p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.resume ul li::marker {
+  color: var(--secondary-color); /* Custom color for bullet points */
+  font-size: 1.2em;
+}

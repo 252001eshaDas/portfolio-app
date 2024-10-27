@@ -1,0 +1,87 @@
+.skills {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .skills h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .skills-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .buttons-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .buttons-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons-card button.active {
+    background-color: #008080;
+    color: white;
+  }
+  
+  .buttons-card button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .details-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .skill-detail {
+    text-align: left;
+  }
+  
+  .skill-detail h4 {
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #008080;
+  }
+  
+  @media (max-width: 768px) {
+    .skills-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .details-column {
+      max-width: 100%;
+    }
+  }
+  
