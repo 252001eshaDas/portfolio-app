@@ -7,12 +7,9 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import './App.css';
 import About from './components/About';
-import Testimonials from './components/Testimonials';
 
 function App() {
   // useEffect(() => {
-    const currentHour = new Date().getHours();
-    const root = document.documentElement;
     const [isDayMode, setIsDayMode] = useState(true); // State to manage day/night mode
 
     useEffect(() => {
@@ -71,7 +68,6 @@ function App() {
         <Services />
         <Portfolio />
         <Resume />
-        {/* <Testimonials /> */}
         <Contact />
       </main>
     </div>

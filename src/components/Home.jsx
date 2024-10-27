@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaTwitter, FaDribbble, FaBehance } from 'react-icons/fa';
 import './Home.css';
 import Typed from 'typed.js';
 

@@ -9,7 +9,7 @@ const Contact = () => {
     message: '',
   });
 
-  const contactRef = useRef();
+  const contactRef = useRef(null);
   const formGroupsRef = useRef([]);
 
   useEffect(() => {
@@ -26,17 +26,25 @@ const Contact = () => {
       { threshold: 0.1 }
     );
 
-    if (contactRef.current) {
-      observer.observe(contactRef.current);
+    // Store the current ref values in variables
+    const currentContactRef = contactRef.current;
+    const currentFormGroups = formGroupsRef.current;
+
+    if (currentContactRef) {
+      observer.observe(currentContactRef);
     }
 
-    formGroupsRef.current.forEach((group) => observer.observe(group));
+    currentFormGroups.forEach((group) => {
+      if (group) observer.observe(group);
+    });
 
     return () => {
-      if (contactRef.current) {
-        observer.unobserve(contactRef.current);
+      if (currentContactRef) {
+        observer.unobserve(currentContactRef);
       }
-      formGroupsRef.current.forEach((group) => observer.unobserve(group));
+      currentFormGroups.forEach((group) => {
+        if (group) observer.unobserve(group);
+      });
     };
   }, []);
 
@@ -63,15 +71,15 @@ const Contact = () => {
       templateParams,
       'PPt-pGVp0pxZKWPg5'
     )
-    .then((response) => {
-      console.log('SUCCESS!', response);
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((err) => {
-      console.log('FAILED...', err);
-      alert('Failed to send message, please try again later.');
-    });
+      .then((response) => {
+        console.log('SUCCESS!', response);
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+        alert('Failed to send message, please try again later.');
+      });
   };
 
   return (

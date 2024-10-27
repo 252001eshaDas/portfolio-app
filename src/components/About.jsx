@@ -16,12 +16,15 @@ const About = () => {
     };
 
     const observer = new IntersectionObserver(handleScrollAnimation, { threshold: 0.1 });
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
+    
+    // Store the current ref value in a variable
+    const currentAboutRef = aboutRef.current;
+    if (currentAboutRef) {
+      observer.observe(currentAboutRef);
     }
 
     return () => {
-      if (aboutRef.current) observer.unobserve(aboutRef.current);
+      if (currentAboutRef) observer.unobserve(currentAboutRef);
     };
   }, []);
 
