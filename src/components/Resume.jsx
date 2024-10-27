@@ -12,18 +12,23 @@ const Resume = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active"); // Optional: remove active class when not intersecting
         }
       });
     };
 
     const observer = new IntersectionObserver(handleScrollAnimation, { threshold: 0.2 });
 
-    sectionsRef.current.forEach((section) => {
+    // Capture current sectionsRef in a variable to use in cleanup
+    const currentSections = sectionsRef.current.slice(); // Copy current refs to a variable
+
+    currentSections.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      sectionsRef.current.forEach((section) => {
+      currentSections.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
@@ -58,21 +63,21 @@ const Resume = () => {
     ),
     projects: (
       <div className="resume-section" ref={(el) => sectionsRef.current[3] = el}>
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Project 1</strong> <br />
-          <strong>Platform:</strong> Visual Studio, React JS, Express JS, Node JS, MongoDB <br />
-          <strong>Description:</strong> A personal blogging website.
-        </li>
-        <li>
-          <strong>Project 2</strong> <br />
-          <strong>Platform:</strong> Visual Studio, React JS, Email JS <br />
-          <strong>Team Size:</strong> Independent <br />
-          <strong>Description:</strong> A professional portfolio website.
-        </li>
-      </ul>
-    </div>
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <strong>Project 1</strong> <br />
+            <strong>Platform:</strong> Visual Studio, React JS, Express JS, Node JS, MongoDB <br />
+            <strong>Description:</strong> A personal blogging website.
+          </li>
+          <li>
+            <strong>Project 2</strong> <br />
+            <strong>Platform:</strong> Visual Studio, React JS, Email JS <br />
+            <strong>Team Size:</strong> Independent <br />
+            <strong>Description:</strong> A professional portfolio website.
+          </li>
+        </ul>
+      </div>
     ),
     interests: (
       <div className="resume-section" ref={(el) => sectionsRef.current[4] = el}>
@@ -84,48 +89,48 @@ const Resume = () => {
 
   return (
     <div>
-    <h2  className='section-header'>Resume</h2>
-    <section className="resume" id="resume">
-      <div className="resume-sidebar">
-        <nav>
-          <ul>
-            <li
-              className={activeSection === 'education' ? 'active' : ''}
-              onClick={() => setActiveSection('education')}
-            >
-              <FaGraduationCap className="icon" /> Education
-            </li>
-            <li
-              className={activeSection === 'experience' ? 'active' : ''}
-              onClick={() => setActiveSection('experience')}
-            >
-              <FaBriefcase className="icon" /> Experience
-            </li>
-            <li
-              className={activeSection === 'skills' ? 'active' : ''}
-              onClick={() => setActiveSection('skills')}
-            >
-              <FaCode className="icon" /> Skills
-            </li>
-            <li
-              className={activeSection === 'projects' ? 'active' : ''}
-              onClick={() => setActiveSection('projects')}
-            >
-              <FaLaptop className="icon" /> Projects
-            </li>
-            <li
-              className={activeSection === 'interests' ? 'active' : ''}
-              onClick={() => setActiveSection('interests')}
-            >
-              <FaPalette className="icon" /> Interests
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div className="resume-content">
-        {sections[activeSection]}
-      </div>
-    </section>
+      <h2 className='section-header'>Resume</h2>
+      <section className="resume" id="resume">
+        <div className="resume-sidebar">
+          <nav>
+            <ul>
+              <li
+                className={activeSection === 'education' ? 'active' : ''}
+                onClick={() => setActiveSection('education')}
+              >
+                <FaGraduationCap className="icon" /> Education
+              </li>
+              <li
+                className={activeSection === 'experience' ? 'active' : ''}
+                onClick={() => setActiveSection('experience')}
+              >
+                <FaBriefcase className="icon" /> Experience
+              </li>
+              <li
+                className={activeSection === 'skills' ? 'active' : ''}
+                onClick={() => setActiveSection('skills')}
+              >
+                <FaCode className="icon" /> Skills
+              </li>
+              <li
+                className={activeSection === 'projects' ? 'active' : ''}
+                onClick={() => setActiveSection('projects')}
+              >
+                <FaLaptop className="icon" /> Projects
+              </li>
+              <li
+                className={activeSection === 'interests' ? 'active' : ''}
+                onClick={() => setActiveSection('interests')}
+              >
+                <FaPalette className="icon" /> Interests
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div className="resume-content">
+          {sections[activeSection]}
+        </div>
+      </section>
     </div>
   );
 };
